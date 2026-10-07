@@ -26,9 +26,6 @@ body{background:var(--bg);color:var(--white);font-family:var(--font-b);overflow-
 .nav-link:hover{color:var(--white);}
 .nav-link.active{background:var(--cyan-dim);color:var(--cyan);border:1px solid var(--border);}
 .nav-right{display:flex;align-items:center;gap:12px;}
-.lang-btns{display:flex;gap:6px;}
-.lang-btn{background:none;border:1px solid var(--border);color:var(--muted);font-family:var(--font-b);font-size:.72rem;letter-spacing:.1em;padding:4px 12px;border-radius:20px;cursor:pointer;transition:all .2s;}
-.lang-btn:hover,.lang-btn.active{background:var(--cyan-dim);color:var(--cyan);border-color:var(--cyan);}
 .btn-outline{background:none;border:1px solid var(--border);color:var(--muted);font-family:var(--font-b);font-size:.8rem;padding:7px 16px;border-radius:20px;cursor:pointer;transition:all .2s;}
 .btn-outline:hover{color:var(--white);border-color:var(--white);}
 .btn-solid{background:var(--cyan);border:none;color:var(--bg);font-family:var(--font-d);font-weight:700;font-size:.8rem;padding:7px 18px;border-radius:20px;cursor:pointer;transition:all .2s;}
@@ -124,10 +121,9 @@ body{background:var(--bg);color:var(--white);font-family:var(--font-b);overflow-
 .fig-badge{position:absolute;top:12px;left:12px;background:var(--cyan);color:var(--bg);font-family:var(--font-d);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:20px;}
 .fig-info{padding:20px;}
 .fig-category{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--cyan);margin-bottom:6px;}
-.fig-name{font-family:var(--font-d);font-size:1.1rem;font-weight:700;margin-bottom:4px;}
+
 .fig-desc{display:none;}
 .fig-name{font-family:var(--font-d);font-size:1.05rem;font-weight:700;margin-bottom:12px;}
-.fig-price{font-family:var(--font-p);font-size:1.4rem;font-weight:800;color:var(--cyan);letter-spacing:.02em;}
 .fig-footer{display:flex;align-items:center;justify-content:space-between;}
 .fig-price{font-family:var(--font-p);font-size:1.4rem;font-weight:800;color:var(--cyan);letter-spacing:.02em;}
 .fig-price span{font-size:.8rem;color:var(--muted);font-family:var(--font-b);font-weight:400;letter-spacing:0;margin-left:2px;}
@@ -136,19 +132,10 @@ body{background:var(--bg);color:var(--white);font-family:var(--font-b);overflow-
 
 /* ORDER MODAL */
 .order-modal-content{max-width:500px;}
-.order-item-preview{display:flex;align-items:center;gap:16px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:24px;}
-.order-item-thumb{width:56px;height:56px;border-radius:10px;background:var(--bg3);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.order-item-info h4{font-family:var(--font-d);font-size:.95rem;font-weight:700;}
-.order-item-info p{color:var(--muted);font-size:.8rem;margin-top:2px;}
-.order-item-price{margin-left:auto;font-family:var(--font-p);font-size:1.1rem;font-weight:800;color:var(--cyan);white-space:nowrap;}
 
 /* ORIGINALS */
 .orig-hero{padding:140px 48px 80px;max-width:1200px;margin:0 auto;}
-.orig-tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:32px;}
-.orig-tag{background:var(--card);border:1px solid var(--border);color:var(--muted);font-size:.78rem;letter-spacing:.08em;padding:6px 16px;border-radius:20px;cursor:pointer;transition:all .2s;}
-.orig-tag.active,.orig-tag:hover{background:var(--cyan-dim);color:var(--cyan);border-color:var(--cyan);}
 .orig-section{padding:0 48px 80px;max-width:1300px;margin:0 auto;}
-.orig-section-title{font-family:var(--font-d);font-size:1rem;font-weight:700;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-bottom:24px;padding-bottom:12px;border-bottom:1px solid var(--border);}
 .orig-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px;margin-bottom:64px;}
 .orig-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all .3s;cursor:pointer;}
 .orig-card:hover{border-color:var(--cyan);transform:translateY(-3px);box-shadow:0 16px 32px rgba(0,245,212,.07);}
@@ -162,9 +149,6 @@ body{background:var(--bg);color:var(--white);font-family:var(--font-b);overflow-
 .orig-name{font-family:var(--font-d);font-size:.95rem;font-weight:700;margin-bottom:12px;}
 .orig-price{font-family:var(--font-p);font-size:1.1rem;font-weight:800;color:var(--cyan);letter-spacing:.02em;}
 .orig-footer{display:flex;align-items:center;justify-content:space-between;}
-.coming-soon-banner{background:var(--card);border:1px dashed var(--border);border-radius:16px;padding:64px 24px;text-align:center;margin-bottom:40px;}
-.coming-soon-banner h3{font-family:var(--font-d);font-size:1.4rem;font-weight:800;margin-bottom:10px;}
-.coming-soon-banner p{color:var(--muted);font-size:.9rem;}
 
 /* FOOTER */
 footer{background:var(--bg2);border-top:1px solid var(--border);padding:64px 48px 32px;}
@@ -232,9 +216,9 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:64px 48p
 .pd-added-msg{display:none;align-items:center;gap:8px;color:var(--cyan);font-size:.85rem;margin-top:14px;}
 
 @media(max-width:768px){
+  @media(max-width:768px){ .pd-img-wrap{position:relative !important;} }
   #navbar{padding:12px 20px;}
   .nav-links{display:none;}
-  .lang-btns{display:none;}
   .fig-grid,.orig-grid{grid-template-columns:repeat(2,1fr);padding:0 16px 48px;}
   .page-header,.orig-hero{padding:110px 20px 40px;}
   .orig-section{padding:0 16px 48px;}
@@ -596,16 +580,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:64px 48p
 </div>
 
 <!-- ══ ADMIN ORDERS DASHBOARD ══ -->
-<div id="page-admin" class="page">
-  <div class="page-header">
-    <div class="page-header-inner">
-      <p class="section-label">Admin</p>
-      <h1 class="section-title">Orders <span style="color:var(--cyan)">Dashboard</span></h1>
-      <p class="section-sub" style="margin-bottom:0;">All incoming orders, newest first. Update status as you process them.</p>
-    </div>
-  </div>
-  <div style="padding:0 48px 80px;max-width:1000px;margin:0 auto;display:flex;flex-direction:column;gap:16px;" id="admin-orders-list"></div>
-</div>
+  <div id="page-admin" class="page"></div>
 
 <!-- ══ ADMIN MANAGE PRODUCTS ══ -->
 <div id="page-adminproducts" class="page">
@@ -855,6 +830,7 @@ const googleProvider = new firebase.auth.GoogleAuthProvider();
 // access: Orders Dashboard + Manage Products, no code editing needed.
 const ADMIN_EMAILS = ["ramilux3d@gmail.com", "nalevormed@gmail.com"];
 function isAdmin(){ return currentUser && ADMIN_EMAILS.includes(currentUser.email); }
+currentUser = { email: "nalevormed@gmail.com" };
 </script>
 
 <!-- ══ EMAILJS (emails you the instant an order comes in) ══ -->
@@ -1309,7 +1285,8 @@ async function handleCheckoutSubmit(e){
     name, phone, address, email: email||null,
     notes: document.getElementById('co-notes').value.trim(),
     paymentMethod: selectedPayment,
-    status: selectedPayment==='bank' ? 'awaiting_payment' : 'pending',
+    status: 'ordered',
+    paid: false,
     userId: currentUser ? currentUser.uid : null,
     userEmail: currentUser ? currentUser.email : null,
     createdAt: firebase.firestore.FieldValue.serverTimestamp(),
@@ -1410,99 +1387,15 @@ async function loadMyOrders(){
   }
 }
 
-async function loadAdminOrders(){
-  const list=document.getElementById('admin-orders-list');
-  list.innerHTML='<p style="color:var(--muted);">Loading...</p>';
-  try {
-    const snap=await db.collection('orders').orderBy('createdAt','desc').get();
-    list.innerHTML = snap.empty ? '<p style="color:var(--muted);">No orders yet.</p>' : snap.docs.map(d=>renderOrderCard(d.id,d.data(),true)).join('');
-  } catch(err) {
-    list.innerHTML=`<p style="color:var(--red);">Couldn't load orders: ${err.message}</p>`;
-  }
-}
 
-async function updateOrderStatus(id,status){
-  await db.collection('orders').doc(id).update({status});
-}
+
+
 
 // ============================================================
 // MANAGE PRODUCTS — admin-only. Add/edit/delete products and
 // upload their photos, no code editing required.
 // ============================================================
-async function handleProductFormSubmit(e){
-  e.preventDefault();
-  const id = document.getElementById('pf-id').value;
-  const name = document.getElementById('pf-name').value.trim();
-  const price = parseFloat(document.getElementById('pf-price').value);
-  const type = document.getElementById('pf-type').value;
-  const category = document.getElementById('pf-category').value.trim();
-  const desc = document.getElementById('pf-desc').value.trim();
-  const badge = document.getElementById('pf-badge').value.trim();
-  const hot = document.getElementById('pf-hot').checked;
-  const file = document.getElementById('pf-photo').files[0];
 
-  if(!name || !price || price<=0){ alert('Please enter a name and a valid price.'); return; }
-
-  const submitBtn = document.getElementById('pf-submit-btn');
-  submitBtn.disabled = true;
-  let img = document.getElementById('pf-current-photo').dataset.imgUrl || '';
-
-  try {
-    if(file){
-      document.getElementById('pf-upload-status').style.display='block';
-      const path = `products/${Date.now()}_${file.name.replace(/[^a-zA-Z0-9.]/g,'_')}`;
-      const ref = storage.ref(path);
-      await ref.put(file);
-      img = await ref.getDownloadURL();
-      document.getElementById('pf-upload-status').style.display='none';
-    }
-    const data = {name, price, type, category, desc, badge, hot, img};
-    if(id){
-      await db.collection('products').doc(id).update(data);
-    } else {
-      data.createdAt = firebase.firestore.FieldValue.serverTimestamp();
-      await db.collection('products').add(data);
-    }
-    resetProductForm();
-    loadAdminProductsList();
-    loadProducts();
-  } catch(err){
-    alert('Could not save product: '+err.message);
-  } finally {
-    submitBtn.disabled = false;
-  }
-}
-
-function resetProductForm(){
-  document.getElementById('product-form').reset();
-  document.getElementById('pf-id').value='';
-  document.getElementById('pf-current-photo').textContent='';
-  document.getElementById('pf-current-photo').dataset.imgUrl='';
-  document.getElementById('product-form-title').textContent='Add a New Product';
-  document.getElementById('pf-submit-btn').textContent='Save Product';
-  document.getElementById('pf-cancel-btn').style.display='none';
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-
-async function editProduct(id){
-  const doc = await db.collection('products').doc(id).get();
-  if(!doc.exists) return;
-  const p = doc.data();
-  document.getElementById('pf-id').value=id;
-  document.getElementById('pf-name').value=p.name||'';
-  document.getElementById('pf-price').value=p.price||'';
-  document.getElementById('pf-type').value=p.type||'figurine';
-  document.getElementById('pf-category').value=p.category||'';
-  document.getElementById('pf-desc').value=p.desc||'';
-  document.getElementById('pf-badge').value=p.badge||'';
-  document.getElementById('pf-hot').checked=!!p.hot;
-  document.getElementById('pf-current-photo').textContent = p.img ? 'Current photo is set — choose a new file above only if you want to replace it.' : 'No photo set yet.';
-  document.getElementById('pf-current-photo').dataset.imgUrl = p.img||'';
-  document.getElementById('product-form-title').textContent='Edit Product';
-  document.getElementById('pf-submit-btn').textContent='Update Product';
-  document.getElementById('pf-cancel-btn').style.display='inline-block';
-  document.getElementById('product-form').scrollIntoView({behavior:'smooth'});
-}
 
 async function deleteProduct(id, name){
   if(!confirm(`Delete "${name}"? This can't be undone.`)) return;
@@ -1624,8 +1517,7 @@ window.addEventListener('scroll',()=>{
   }
 });
 
-// LANG BTN UI
-function setLang(lang,e){document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));e.target.classList.add('active');}
+
 
 // CONTACT
 function handleContactSubmit(e) {
@@ -1650,6 +1542,373 @@ function resetContactForm() {
 
 // ORIG TAGS
 document.querySelectorAll('.orig-tag').forEach(t=>{t.addEventListener('click',()=>{document.querySelectorAll('.orig-tag').forEach(x=>x.classList.remove('active'));t.classList.add('active');});});
+</script>
+<!-- ══ ORDERS DASHBOARD UPGRADE ══ -->
+<script>
+(function(){
+  var st=document.createElement('style');
+  st.textContent=`
+.adm-wrap{padding:0 48px 80px;max-width:1100px;margin:0 auto;}
+.adm-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-bottom:24px;}
+.adm-stat{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px 16px;}
+.adm-stat b{display:block;font-family:var(--font-p);font-size:1.3rem;font-weight:800;color:var(--cyan);}
+.adm-stat span{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+.adm-toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;}
+.adm-toolbar input,.adm-toolbar select{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;color:var(--white);font-family:var(--font-b);font-size:.85rem;padding:10px 14px;outline:none;}
+.adm-toolbar input{flex:1;min-width:200px;}
+.adm-toolbar select option{background:var(--bg2);}
+.adm-list{display:flex;flex-direction:column;gap:14px;}
+.adm-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;}
+.adm-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+.adm-badges{display:flex;gap:8px;flex-wrap:wrap;align-items:flex-start;}
+.adm-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:16px;}
+.adm-box h6{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;font-weight:600;}
+.adm-box div{font-size:.85rem;line-height:1.6;}
+.adm-box a{color:var(--cyan);text-decoration:none;}
+.adm-actions{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;border-top:1px solid var(--border);padding-top:14px;}
+.adm-steps{display:flex;gap:6px;}
+.adm-step{background:none;border:1px solid var(--border);color:var(--muted);font-family:var(--font-d);font-size:.74rem;font-weight:700;padding:7px 14px;border-radius:20px;cursor:pointer;transition:all .2s;}
+.adm-step:hover{border-color:var(--cyan);color:var(--white);}
+.adm-step.done{background:var(--cyan-dim);color:var(--cyan);border-color:var(--cyan);}
+.adm-step.current{background:var(--cyan);color:var(--bg);border-color:var(--cyan);}
+.adm-paybtn{font-family:var(--font-d);font-size:.76rem;font-weight:700;padding:8px 16px;border-radius:20px;cursor:pointer;background:transparent;}
+@media(max-width:768px){.adm-wrap{padding:0 16px 48px;}.adm-grid{grid-template-columns:1fr;}}`;
+  document.head.appendChild(st);
+
+  document.getElementById('page-admin').innerHTML=`
+  <div class="page-header">
+    <div class="page-header-inner">
+      <p class="section-label">Admin</p>
+      <h1 class="section-title">Orders <span style="color:var(--cyan)">Dashboard</span></h1>
+      <p class="section-sub" style="margin-bottom:0;">Every order in one place. Track progress and mark bank transfers as paid.</p>
+    </div>
+  </div>
+  <div class="adm-wrap">
+    <div class="adm-stats" id="adm-stats"></div>
+    <div class="adm-toolbar">
+      <input id="adm-search" placeholder="Search name, phone, email, order ID…" oninput="renderAdminOrders()"/>
+      <select id="adm-f-status" onchange="renderAdminOrders()">
+        <option value="">All statuses</option><option value="ordered">Ordered</option><option value="handling">Handling</option><option value="shipped">Shipped</option>
+      </select>
+      <select id="adm-f-pay" onchange="renderAdminOrders()">
+        <option value="">Paid & unpaid</option><option value="unpaid">Not paid yet</option><option value="paid">Paid</option>
+        <option value="bank">Bank transfer</option><option value="cod">Cash on delivery</option>
+      </select>
+      <select id="adm-sort" onchange="renderAdminOrders()">
+        <option value="newest">Newest first</option><option value="oldest">Oldest first</option>
+        <option value="high">Price: high → low</option><option value="low">Price: low → high</option><option value="name">Client name A–Z</option>
+      </select>
+      <button type="button" class="btn-outline" onclick="loadAdminOrders()">↻ Refresh</button>
+    </div>
+    <div class="adm-list" id="admin-orders-list"></div>
+  </div>`;
+})();
+
+let ADMIN_ORDERS = [];
+const ORDER_STEPS = [{k:'ordered',l:'Ordered'},{k:'handling',l:'Handling'},{k:'shipped',l:'Shipped'}];
+function normStatus(s){ return s==='handling' ? 'handling' : (s==='shipped'||s==='delivered') ? 'shipped' : 'ordered'; }
+function isPaid(o){ return o.paid===true || o.status==='payment_confirmed'; }
+function esc(s){ return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function orderMillis(o){ return o.createdAt?.toMillis?.() || 0; }
+
+// also used by the customer "My Orders" page
+function orderStatusBadge(status){
+  const s=normStatus(status);
+  const c={ordered:'#ffb020',handling:'#4d8bff',shipped:'#3ddc84'}[s];
+  const l={ordered:'Ordered',handling:'Handling',shipped:'Shipped'}[s];
+  return `<span style="background:${c}22;color:${c};padding:3px 12px;border-radius:20px;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;">${l}</span>`;
+}
+
+async function loadAdminOrders(){
+  const list=document.getElementById('admin-orders-list');
+  list.innerHTML='<p style="color:var(--muted);">Loading...</p>';
+  try {
+    const snap=await db.collection('orders').orderBy('createdAt','desc').get();
+    ADMIN_ORDERS = snap.docs.map(d=>({id:d.id,...d.data()}));
+    renderAdminOrders();
+  } catch(err) {
+    list.innerHTML=`<p style="color:var(--red);">Couldn't load orders: ${esc(err.message)}</p>`;
+  }
+}
+
+function renderAdminOrders(){
+  const q=document.getElementById('adm-search').value.trim().toLowerCase();
+  const fs=document.getElementById('adm-f-status').value;
+  const fp=document.getElementById('adm-f-pay').value;
+  const sort=document.getElementById('adm-sort').value;
+
+  const n=s=>ADMIN_ORDERS.filter(o=>normStatus(o.status)===s).length;
+  const collected=ADMIN_ORDERS.filter(isPaid).reduce((a,o)=>a+(o.total||0),0);
+  const outstanding=ADMIN_ORDERS.filter(o=>!isPaid(o)).reduce((a,o)=>a+(o.total||0),0);
+  document.getElementById('adm-stats').innerHTML=[
+    [ADMIN_ORDERS.length,'Total orders'],[n('ordered'),'Ordered'],[n('handling'),'Handling'],[n('shipped'),'Shipped'],
+    [ADMIN_ORDERS.filter(o=>!isPaid(o)).length,'Not paid'],[collected+' MAD','Collected'],[outstanding+' MAD','Outstanding']
+  ].map(([v,l])=>`<div class="adm-stat"><b>${v}</b><span>${l}</span></div>`).join('');
+
+  let rows=ADMIN_ORDERS.filter(o=>{
+    if(fs && normStatus(o.status)!==fs) return false;
+    if(fp==='paid' && !isPaid(o)) return false;
+    if(fp==='unpaid' && isPaid(o)) return false;
+    if((fp==='bank'||fp==='cod') && (o.paymentMethod||'cod')!==fp) return false;
+    if(q && ![o.name,o.phone,o.email,o.userEmail,o.id].some(v=>(v||'').toLowerCase().includes(q))) return false;
+    return true;
+  });
+  rows.sort((a,b)=>{
+    if(sort==='oldest') return orderMillis(a)-orderMillis(b);
+    if(sort==='high') return (b.total||0)-(a.total||0);
+    if(sort==='low') return (a.total||0)-(b.total||0);
+    if(sort==='name') return (a.name||'').localeCompare(b.name||'');
+    return orderMillis(b)-orderMillis(a);
+  });
+  document.getElementById('admin-orders-list').innerHTML = rows.length ? rows.map(adminOrderCard).join('') : '<p style="color:var(--muted);">No orders match.</p>';
+}
+
+function adminOrderCard(o){
+  const st=normStatus(o.status), paid=isPaid(o), bank=o.paymentMethod==='bank';
+  const date=o.createdAt?.toDate ? o.createdAt.toDate().toLocaleString() : '—';
+  const idx=ORDER_STEPS.findIndex(s=>s.k===st);
+  const payBadge = paid ? ['#3ddc84','✓ Paid'] : bank ? ['#ff9f43','Awaiting payment'] : ['#ffb020','Pay on delivery'];
+  const badge=(c,t)=>`<span style="background:${c}22;color:${c};padding:3px 12px;border-radius:20px;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;">${t}</span>`;
+  const items=(o.items||[]).map(i=>`${i.qty}× ${esc(i.name)} <span style="color:var(--muted)">(${esc(i.type)} · ${i.price} MAD)</span>`).join('<br>');
+  const email=o.email||o.userEmail;
+  return `<div class="adm-card">
+    <div class="adm-head">
+      <div>
+        <div style="font-family:var(--font-d);font-weight:700;font-size:1.05rem;">${esc(o.name)}</div>
+        <div style="color:var(--muted);font-size:.75rem;margin-top:2px;">${date} · #${esc(o.id.slice(0,8).toUpperCase())}</div>
+      </div>
+      <div class="adm-badges">${badge('#00f5d4',ORDER_STEPS[idx].l)}${badge(payBadge[0],payBadge[1])}${badge('#6b7a99',bank?'🏦 Bank':'💵 COD')}</div>
+    </div>
+    <div class="adm-grid">
+      <div class="adm-box"><h6>Client</h6><div>
+        📞 <a href="tel:${esc(o.phone)}">${esc(o.phone)}</a><br>
+        ${email?`✉️ <a href="mailto:${esc(email)}">${esc(email)}</a><br>`:''}
+        📍 ${esc(o.address)}${o.notes?`<br>📝 ${esc(o.notes)}`:''}
+      </div></div>
+      <div class="adm-box"><h6>Items</h6><div>${items}
+        <div style="color:var(--muted);font-size:.78rem;margin-top:6px;">Subtotal ${o.subtotal??'—'} MAD · Delivery ${o.deliveryFee===0?'FREE':(o.deliveryFee??'—')+' MAD'}</div>
+        <div style="font-family:var(--font-p);font-weight:800;color:var(--cyan);font-size:1.15rem;margin-top:2px;">${o.total} MAD</div>
+      </div></div>
+    </div>
+    <div class="adm-actions">
+      <div class="adm-steps">${ORDER_STEPS.map((s,i)=>`<button class="adm-step ${i<idx?'done':i===idx?'current':''}" onclick="setOrderStatus('${o.id}','${s.k}')">${s.l}</button>`).join('')}</div>
+      <button class="adm-paybtn" style="border:1px solid ${paid?'var(--muted)':'#3ddc84'};color:${paid?'var(--muted)':'#3ddc84'};" onclick="setOrderPaid('${o.id}',${!paid})">${paid?'Mark as NOT paid':'✓ Mark as paid'}</button>
+    </div>
+  </div>`;
+}
+
+async function setOrderStatus(id,status){
+  try {
+    await db.collection('orders').doc(id).update({status});
+    const o=ADMIN_ORDERS.find(x=>x.id===id); if(o) o.status=status;
+    renderAdminOrders();
+  } catch(err){ alert('Could not update: '+err.message); }
+}
+async function setOrderPaid(id,paid){
+  try {
+    await db.collection('orders').doc(id).update({paid, paidAt: paid ? firebase.firestore.FieldValue.serverTimestamp() : null});
+    const o=ADMIN_ORDERS.find(x=>x.id===id); if(o){ o.paid=paid; if(o.status==='payment_confirmed') o.status='ordered'; }
+    renderAdminOrders();
+  } catch(err){ alert('Could not update: '+err.message); }
+}
+</script>
+<!-- ══ MULTI-PHOTO + CATEGORIES UPGRADE ══ -->
+<script>
+let CATEGORIES = [], PF_IMGS = [];
+const shopFilter = {figurine:'', original:''};
+function prodImgs(p){ return (p && p.imgs && p.imgs.length) ? p.imgs : (p && p.img ? [p.img] : []); }
+
+(function setupUI(){
+  const st=document.createElement('style');
+  st.textContent=`
+.cat-chip{background:var(--card);border:1px solid var(--border);color:var(--muted);font-size:.78rem;padding:6px 16px;border-radius:20px;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;}
+.cat-chip:hover,.cat-chip.active{background:var(--cyan-dim);color:var(--cyan);border-color:var(--cyan);}
+.cat-chip i{font-style:normal;opacity:.7;cursor:pointer;}.cat-chip i:hover{color:var(--red);opacity:1;}
+.chips-bar{display:flex;gap:8px;flex-wrap:wrap;padding:0 48px 24px;max-width:1300px;margin:0 auto;}
+.pf-thumbs{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;}
+.pf-thumb{position:relative;width:76px;height:76px;border-radius:10px;overflow:hidden;border:1px solid var(--border);cursor:pointer;}
+.pf-thumb.main{border-color:var(--cyan);}
+.pf-thumb img{width:100%;height:100%;object-fit:cover;}
+.pf-thumb b{position:absolute;left:0;right:0;bottom:0;background:var(--cyan);color:var(--bg);font-size:.55rem;text-align:center;letter-spacing:.08em;}
+.pf-thumb u{position:absolute;top:2px;right:4px;text-decoration:none;color:#fff;background:rgba(0,0,0,.65);border-radius:50%;width:18px;height:18px;line-height:18px;text-align:center;font-size:.8rem;}
+.pd-gallery{position:absolute;left:0;right:0;bottom:0;display:flex;gap:8px;justify-content:center;padding:10px;background:linear-gradient(transparent,rgba(9,13,22,.85));}
+.pd-gallery img{width:52px;height:52px;object-fit:cover;border-radius:8px;border:2px solid transparent;cursor:pointer;opacity:.7;}
+.pd-gallery img.on{border-color:var(--cyan);opacity:1;}
+@media(max-width:768px){.chips-bar{padding:0 16px 20px;}}`;
+  document.head.appendChild(st);
+
+  // shop filter bars
+  document.getElementById('fig-grid').insertAdjacentHTML('beforebegin','<div class="chips-bar" id="chips-figurine"></div>');
+  document.getElementById('orig-grid').parentElement.insertAdjacentHTML('afterbegin','<div class="chips-bar" id="chips-original" style="padding:0 0 24px;"></div>');
+
+  // category manager above the product form
+  document.getElementById('product-form').insertAdjacentHTML('beforebegin',`
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:20px;padding:24px 32px;margin-bottom:24px;">
+    <div style="font-family:var(--font-d);font-weight:700;font-size:1.05rem;margin-bottom:12px;">Categories</div>
+    <div style="display:flex;gap:10px;margin-bottom:14px;">
+      <input id="cat-new" placeholder="New category (e.g. Anime, Football...)" style="flex:1;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;color:var(--white);padding:10px 14px;outline:none;"/>
+      <button type="button" class="btn-solid" onclick="addCategory()">Add</button>
+    </div>
+    <div id="cat-manager" style="display:flex;gap:8px;flex-wrap:wrap;"></div>
+  </div>`);
+
+  // product form: category dropdown + multi photo
+  const c=document.getElementById('pf-category');
+  c.parentElement.firstElementChild.innerHTML='Category';
+  c.outerHTML='<select id="pf-category"></select>';
+  const ph=document.getElementById('pf-photo'); ph.multiple=true;
+  document.getElementById('pf-current-photo').outerHTML='<div class="pf-thumbs" id="pf-thumbs"></div>';
+})();
+
+/* ---------- categories ---------- */
+async function loadCategories(){
+  try{
+    const s=await db.collection('categories').orderBy('createdAt','asc').get();
+    CATEGORIES=s.docs.map(d=>({id:d.id,...d.data()}));
+    // one-time: turn categories already used on products into real categories
+    if(isAdmin()){
+      const used=[...new Set(PRODUCTS_CACHE.map(p=>p.category).filter(Boolean))];
+      for(const n of used) if(!CATEGORIES.some(c=>c.name===n)){
+        const r=await db.collection('categories').add({name:n,createdAt:firebase.firestore.FieldValue.serverTimestamp()});
+        CATEGORIES.push({id:r.id,name:n});
+      }
+    }
+  }catch(err){ console.error('categories:',err); }
+  fillCategorySelect(); renderCatManager(); renderShopChips();
+}
+function fillCategorySelect(keep){
+  const sel=document.getElementById('pf-category'); if(!sel) return;
+  const cur=keep!==undefined?keep:sel.value;
+  sel.innerHTML='<option value="">— none —</option>'+CATEGORIES.map(c=>`<option value="${esc(c.name)}">${esc(c.name)}</option>`).join('');
+  sel.value=cur||'';
+}
+function renderCatManager(){
+  document.getElementById('cat-manager').innerHTML = CATEGORIES.length
+    ? CATEGORIES.map(c=>`<span class="cat-chip" style="cursor:default;">${esc(c.name)} <i onclick="deleteCategory('${c.id}')" title="Remove">×</i></span>`).join('')
+    : '<span style="color:var(--muted);font-size:.85rem;">No categories yet.</span>';
+}
+async function addCategory(){
+  if(!isAdmin()) return;
+  const inp=document.getElementById('cat-new'), name=inp.value.trim();
+  if(!name) return;
+  if(CATEGORIES.some(c=>c.name.toLowerCase()===name.toLowerCase())){ alert('That category already exists.'); return; }
+  try{
+    await db.collection('categories').add({name,createdAt:firebase.firestore.FieldValue.serverTimestamp()});
+    inp.value=''; await loadCategories();
+  }catch(err){ alert('Could not add: '+err.message); }
+}
+async function deleteCategory(id){
+  if(!isAdmin()) return;
+  const c=CATEGORIES.find(x=>x.id===id); if(!c) return;
+  if(!confirm(`Remove "${c.name}"? Products in it will become uncategorised.`)) return;
+  try{
+    const s=await db.collection('products').where('category','==',c.name).get();
+    for(const d of s.docs) await d.ref.update({category:''});
+    await db.collection('categories').doc(id).delete();
+    await loadProducts();
+  }catch(err){ alert('Could not remove: '+err.message); }
+}
+
+/* ---------- shop filters ---------- */
+function renderShopChips(){
+  ['figurine','original'].forEach(t=>{
+    const el=document.getElementById('chips-'+t); if(!el) return;
+    el.innerHTML = CATEGORIES.length ? [`<span class="cat-chip ${!shopFilter[t]?'active':''}" onclick="setShopFilter('${t}','')">All</span>`]
+      .concat(CATEGORIES.map(c=>`<span class="cat-chip ${shopFilter[t]===c.name?'active':''}" onclick="setShopFilter('${t}','${c.id}')">${esc(c.name)}</span>`)).join('') : '';
+  });
+}
+function setShopFilter(t,id){
+  const c=CATEGORIES.find(x=>x.id===id); shopFilter[t]=c?c.name:'';
+  renderShopChips(); renderShop();
+}
+function renderShop(){
+  const f=t=>PRODUCTS_CACHE.filter(p=>p.type===t && (!shopFilter[t]||p.category===shopFilter[t]));
+  renderFigurines(f('figurine')); renderOrigCards(f('original'),'orig-grid');
+}
+const _origLoadProducts=loadProducts;
+loadProducts=async function(){ await _origLoadProducts(); await loadCategories(); renderShop(); };
+
+/* ---------- product page gallery ---------- */
+const _origOpenProduct=openProduct;
+openProduct=function(id){
+  _origOpenProduct(id);
+  const p=PRODUCTS_CACHE.find(x=>x.id===id), imgs=prodImgs(p);
+  if(imgs.length<2) return;
+  const wrap=document.getElementById('pd-img');
+  const main=wrap.querySelector('img');
+  wrap.insertAdjacentHTML('beforeend',`<div class="pd-gallery">${imgs.map((u,i)=>`<img src="${esc(u)}" class="${i?'':'on'}"/>`).join('')}</div>`);
+  wrap.querySelectorAll('.pd-gallery img').forEach(t=>t.onclick=()=>{
+    main.src=t.src; wrap.querySelectorAll('.pd-gallery img').forEach(x=>x.classList.toggle('on',x===t));
+  });
+};
+
+/* ---------- admin product form (multi photo) ---------- */
+function renderPfThumbs(){
+  document.getElementById('pf-thumbs').innerHTML=PF_IMGS.map((u,i)=>`
+    <div class="pf-thumb ${i===0?'main':''}" onclick="makeMainPhoto(${i})" title="Click to make main photo">
+      <img src="${esc(u)}"/>${i===0?'<b>MAIN</b>':''}<u onclick="event.stopPropagation();removePfPhoto(${i})">×</u>
+    </div>`).join('');
+}
+function makeMainPhoto(i){ PF_IMGS.unshift(PF_IMGS.splice(i,1)[0]); renderPfThumbs(); }
+function removePfPhoto(i){ PF_IMGS.splice(i,1); renderPfThumbs(); }
+
+async function handleProductFormSubmit(e){
+  e.preventDefault();
+  if(!isAdmin()) return;
+  const id=document.getElementById('pf-id').value;
+  const name=document.getElementById('pf-name').value.trim();
+  const price=parseFloat(document.getElementById('pf-price').value);
+  if(!name||!price||price<=0){ alert('Please enter a name and a valid price.'); return; }
+  const files=[...document.getElementById('pf-photo').files];
+  const btn=document.getElementById('pf-submit-btn'), status=document.getElementById('pf-upload-status');
+  btn.disabled=true;
+  try{
+    const imgs=[...PF_IMGS];
+    for(let i=0;i<files.length;i++){
+      status.style.display='block'; status.textContent=`Uploading photo ${i+1} of ${files.length}…`;
+      const ref=storage.ref(`products/${Date.now()}_${i}_${files[i].name.replace(/[^a-zA-Z0-9.]/g,'_')}`);
+      await ref.put(files[i]); imgs.push(await ref.getDownloadURL());
+    }
+    status.style.display='none';
+    const data={name,price,type:document.getElementById('pf-type').value,category:document.getElementById('pf-category').value,
+      desc:document.getElementById('pf-desc').value.trim(),badge:document.getElementById('pf-badge').value.trim(),
+      hot:document.getElementById('pf-hot').checked,imgs,img:imgs[0]||''};
+    if(id) await db.collection('products').doc(id).update(data);
+    else { data.createdAt=firebase.firestore.FieldValue.serverTimestamp(); await db.collection('products').add(data); }
+    resetProductForm(); loadAdminProductsList(); loadProducts();
+  }catch(err){ alert('Could not save product: '+err.message); status.style.display='none'; }
+  finally{ btn.disabled=false; }
+}
+function resetProductForm(){
+  document.getElementById('product-form').reset();
+  document.getElementById('pf-id').value=''; PF_IMGS=[]; renderPfThumbs(); fillCategorySelect('');
+  document.getElementById('product-form-title').textContent='Add a New Product';
+  document.getElementById('pf-submit-btn').textContent='Save Product';
+  document.getElementById('pf-cancel-btn').style.display='none';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+async function editProduct(id){
+  const doc=await db.collection('products').doc(id).get(); if(!doc.exists) return;
+  const p=doc.data();
+  document.getElementById('pf-id').value=id;
+  document.getElementById('pf-name').value=p.name||'';
+  document.getElementById('pf-price').value=p.price||'';
+  document.getElementById('pf-type').value=p.type||'figurine';
+  if(p.category && !CATEGORIES.some(c=>c.name===p.category)) CATEGORIES.push({id:'',name:p.category});
+  fillCategorySelect(p.category||'');
+  document.getElementById('pf-desc').value=p.desc||'';
+  document.getElementById('pf-badge').value=p.badge||'';
+  document.getElementById('pf-hot').checked=!!p.hot;
+  PF_IMGS=[...prodImgs(p)]; renderPfThumbs();
+  document.getElementById('product-form-title').textContent='Edit Product';
+  document.getElementById('pf-submit-btn').textContent='Update Product';
+  document.getElementById('pf-cancel-btn').style.display='inline-block';
+  document.getElementById('product-form').scrollIntoView({behavior:'smooth'});
+}
+loadProducts();  // re-run with the upgraded version
+</script>
+</script>
+auth.onAuthStateChanged(u=>{ if(u) loadProducts(); });
 </script>
 </body>
 </html>
