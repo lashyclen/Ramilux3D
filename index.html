@@ -830,7 +830,6 @@ const googleProvider = new firebase.auth.GoogleAuthProvider();
 // access: Orders Dashboard + Manage Products, no code editing needed.
 const ADMIN_EMAILS = ["ramilux3d@gmail.com", "nalevormed@gmail.com"];
 function isAdmin(){ return currentUser && ADMIN_EMAILS.includes(currentUser.email); }
-currentUser = { email: "nalevormed@gmail.com" };
 </script>
 
 <!-- ══ EMAILJS (emails you the instant an order comes in) ══ -->
@@ -1548,48 +1547,53 @@ document.querySelectorAll('.orig-tag').forEach(t=>{t.addEventListener('click',()
 (function(){
   var st=document.createElement('style');
   st.textContent=`
-.adm-wrap{padding:0 48px 80px;max-width:1100px;margin:0 auto;}
-.adm-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-bottom:24px;}
+.adm-wrap{padding:0 32px 80px;max-width:1500px;margin:0 auto;}
+.adm-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:12px;margin-bottom:22px;}
 .adm-stat{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px 16px;}
 .adm-stat b{display:block;font-family:var(--font-p);font-size:1.3rem;font-weight:800;color:var(--cyan);}
-.adm-stat span{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
-.adm-toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;}
+.adm-stat span{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+.adm-toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px;}
 .adm-toolbar input,.adm-toolbar select{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;color:var(--white);font-family:var(--font-b);font-size:.85rem;padding:10px 14px;outline:none;}
 .adm-toolbar input{flex:1;min-width:200px;}
 .adm-toolbar select option{background:var(--bg2);}
-.adm-list{display:flex;flex-direction:column;gap:14px;}
-.adm-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;}
-.adm-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
-.adm-badges{display:flex;gap:8px;flex-wrap:wrap;align-items:flex-start;}
-.adm-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:16px;}
-.adm-box h6{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;font-weight:600;}
-.adm-box div{font-size:.85rem;line-height:1.6;}
-.adm-box a{color:var(--cyan);text-decoration:none;}
-.adm-actions{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;border-top:1px solid var(--border);padding-top:14px;}
-.adm-steps{display:flex;gap:6px;}
-.adm-step{background:none;border:1px solid var(--border);color:var(--muted);font-family:var(--font-d);font-size:.74rem;font-weight:700;padding:7px 14px;border-radius:20px;cursor:pointer;transition:all .2s;}
-.adm-step:hover{border-color:var(--cyan);color:var(--white);}
-.adm-step.done{background:var(--cyan-dim);color:var(--cyan);border-color:var(--cyan);}
-.adm-step.current{background:var(--cyan);color:var(--bg);border-color:var(--cyan);}
-.adm-paybtn{font-family:var(--font-d);font-size:.76rem;font-weight:700;padding:8px 16px;border-radius:20px;cursor:pointer;background:transparent;}
-@media(max-width:768px){.adm-wrap{padding:0 16px 48px;}.adm-grid{grid-template-columns:1fr;}}`;
+.adm-donebtn.on{background:var(--cyan);color:var(--bg);border-color:var(--cyan);}
+.board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:start;}
+.lane{background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:18px;padding:14px;min-height:140px;}
+.lane-h{display:flex;justify-content:space-between;align-items:center;font-family:var(--font-d);font-weight:800;font-size:.95rem;margin:2px 4px 14px;}
+.lane-h span{background:var(--cyan-dim);color:var(--cyan);border-radius:20px;padding:2px 12px;font-size:.78rem;}
+.lane-empty{color:var(--muted);font-size:.82rem;text-align:center;padding:26px 0;}
+.oc{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:14px;margin-bottom:12px;}
+.oc-top{display:flex;justify-content:space-between;gap:8px;align-items:flex-start;margin-bottom:8px;}
+.oc-name{font-family:var(--font-d);font-weight:700;font-size:.95rem;}
+.oc-meta{color:var(--muted);font-size:.7rem;margin-top:2px;}
+.oc-total{font-family:var(--font-p);font-weight:800;color:var(--cyan);white-space:nowrap;}
+.oc-body{font-size:.8rem;line-height:1.6;color:var(--muted);margin-bottom:10px;}
+.oc-body a{color:var(--cyan);text-decoration:none;}
+.oc-items{color:var(--white);margin-bottom:6px;}
+.oc-badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;}
+.oc-badges span{padding:2px 10px;border-radius:20px;font-size:.66rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;}
+.oc-actions{display:flex;gap:8px;flex-wrap:wrap;}
+.oc-btn{border:1px solid var(--border);background:none;color:var(--muted);font-family:var(--font-d);font-weight:700;font-size:.72rem;padding:7px 12px;border-radius:20px;cursor:pointer;transition:all .2s;}
+.oc-btn:hover{color:var(--white);border-color:var(--white);}
+.oc-btn.main{background:var(--cyan);color:var(--bg);border-color:var(--cyan);flex:1;}
+.oc-btn.ship{background:#3ddc84;color:#06210f;border-color:#3ddc84;flex:1;}
+.oc-btn.pay{color:#3ddc84;border-color:#3ddc84;}
+.done-wrap{margin-top:32px;}
+.done-wrap h3{font-family:var(--font-d);font-size:1.1rem;margin-bottom:14px;}
+.done-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px;}
+@media(max-width:900px){.board{grid-template-columns:1fr;}.adm-wrap{padding:0 16px 48px;}}`;
   document.head.appendChild(st);
 
   document.getElementById('page-admin').innerHTML=`
-  <div class="page-header">
-    <div class="page-header-inner">
-      <p class="section-label">Admin</p>
-      <h1 class="section-title">Orders <span style="color:var(--cyan)">Dashboard</span></h1>
-      <p class="section-sub" style="margin-bottom:0;">Every order in one place. Track progress and mark bank transfers as paid.</p>
-    </div>
-  </div>
+  <div class="page-header"><div class="page-header-inner">
+    <p class="section-label">Admin</p>
+    <h1 class="section-title">Orders <span style="color:var(--cyan)">Dashboard</span></h1>
+    <p class="section-sub" style="margin-bottom:0;">Move each order along the lanes. When it ships, press Shipped and it goes to history.</p>
+  </div></div>
   <div class="adm-wrap">
     <div class="adm-stats" id="adm-stats"></div>
     <div class="adm-toolbar">
       <input id="adm-search" placeholder="Search name, phone, email, order ID…" oninput="renderAdminOrders()"/>
-      <select id="adm-f-status" onchange="renderAdminOrders()">
-        <option value="">All statuses</option><option value="ordered">Ordered</option><option value="handling">Handling</option><option value="shipped">Shipped</option>
-      </select>
       <select id="adm-f-pay" onchange="renderAdminOrders()">
         <option value="">Paid & unpaid</option><option value="unpaid">Not paid yet</option><option value="paid">Paid</option>
         <option value="bank">Bank transfer</option><option value="cod">Cash on delivery</option>
@@ -1598,15 +1602,20 @@ document.querySelectorAll('.orig-tag').forEach(t=>{t.addEventListener('click',()
         <option value="newest">Newest first</option><option value="oldest">Oldest first</option>
         <option value="high">Price: high → low</option><option value="low">Price: low → high</option><option value="name">Client name A–Z</option>
       </select>
+      <button type="button" class="btn-outline adm-donebtn" id="adm-donebtn" onclick="toggleDone()">Show done history</button>
       <button type="button" class="btn-outline" onclick="loadAdminOrders()">↻ Refresh</button>
     </div>
-    <div class="adm-list" id="admin-orders-list"></div>
+    <div class="board" id="adm-board"></div>
+    <div id="adm-done"></div>
   </div>`;
 })();
 
-let ADMIN_ORDERS = [];
-const ORDER_STEPS = [{k:'ordered',l:'Ordered'},{k:'handling',l:'Handling'},{k:'shipped',l:'Shipped'}];
-function normStatus(s){ return s==='handling' ? 'handling' : (s==='shipped'||s==='delivered') ? 'shipped' : 'ordered'; }
+let ADMIN_ORDERS = [], SHOW_DONE = false;
+const LANES = [{k:'ordered',l:'New orders',i:'🆕'},{k:'handling',l:'Handling',i:'🛠️'},{k:'shipping',l:'Shipping',i:'📦'}];
+const NEXT = {ordered:['handling','Start handling →'], handling:['shipping','Move to shipping →'], shipping:['done','✓ Shipped']};
+const PREV = {handling:'ordered', shipping:'handling', done:'shipping'};
+
+function normStatus(s){ return s==='handling'?'handling' : s==='shipping'?'shipping' : (s==='done'||s==='shipped'||s==='delivered')?'done' : 'ordered'; }
 function isPaid(o){ return o.paid===true || o.status==='payment_confirmed'; }
 function esc(s){ return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 function orderMillis(o){ return o.createdAt?.toMillis?.() || 0; }
@@ -1614,102 +1623,98 @@ function orderMillis(o){ return o.createdAt?.toMillis?.() || 0; }
 // also used by the customer "My Orders" page
 function orderStatusBadge(status){
   const s=normStatus(status);
-  const c={ordered:'#ffb020',handling:'#4d8bff',shipped:'#3ddc84'}[s];
-  const l={ordered:'Ordered',handling:'Handling',shipped:'Shipped'}[s];
+  const c={ordered:'#ffb020',handling:'#4d8bff',shipping:'#a78bfa',done:'#3ddc84'}[s];
+  const l={ordered:'Ordered',handling:'Handling',shipping:'Shipping',done:'Shipped'}[s];
   return `<span style="background:${c}22;color:${c};padding:3px 12px;border-radius:20px;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;">${l}</span>`;
 }
 
 async function loadAdminOrders(){
-  const list=document.getElementById('admin-orders-list');
-  list.innerHTML='<p style="color:var(--muted);">Loading...</p>';
-  try {
+  const b=document.getElementById('adm-board');
+  b.innerHTML='<p style="color:var(--muted);">Loading...</p>';
+  try{
     const snap=await db.collection('orders').orderBy('createdAt','desc').get();
-    ADMIN_ORDERS = snap.docs.map(d=>({id:d.id,...d.data()}));
+    ADMIN_ORDERS=snap.docs.map(d=>({id:d.id,...d.data()}));
     renderAdminOrders();
-  } catch(err) {
-    list.innerHTML=`<p style="color:var(--red);">Couldn't load orders: ${esc(err.message)}</p>`;
-  }
+  }catch(err){ b.innerHTML=`<p style="color:var(--red);">Couldn't load orders: ${esc(err.message)}</p>`; }
 }
+function toggleDone(){ SHOW_DONE=!SHOW_DONE; renderAdminOrders(); }
 
 function renderAdminOrders(){
   const q=document.getElementById('adm-search').value.trim().toLowerCase();
-  const fs=document.getElementById('adm-f-status').value;
   const fp=document.getElementById('adm-f-pay').value;
   const sort=document.getElementById('adm-sort').value;
-
   const n=s=>ADMIN_ORDERS.filter(o=>normStatus(o.status)===s).length;
   const collected=ADMIN_ORDERS.filter(isPaid).reduce((a,o)=>a+(o.total||0),0);
   const outstanding=ADMIN_ORDERS.filter(o=>!isPaid(o)).reduce((a,o)=>a+(o.total||0),0);
   document.getElementById('adm-stats').innerHTML=[
-    [ADMIN_ORDERS.length,'Total orders'],[n('ordered'),'Ordered'],[n('handling'),'Handling'],[n('shipped'),'Shipped'],
+    [n('ordered'),'New'],[n('handling'),'Handling'],[n('shipping'),'Shipping'],[n('done'),'Done'],
     [ADMIN_ORDERS.filter(o=>!isPaid(o)).length,'Not paid'],[collected+' MAD','Collected'],[outstanding+' MAD','Outstanding']
   ].map(([v,l])=>`<div class="adm-stat"><b>${v}</b><span>${l}</span></div>`).join('');
 
-  let rows=ADMIN_ORDERS.filter(o=>{
-    if(fs && normStatus(o.status)!==fs) return false;
-    if(fp==='paid' && !isPaid(o)) return false;
-    if(fp==='unpaid' && isPaid(o)) return false;
-    if((fp==='bank'||fp==='cod') && (o.paymentMethod||'cod')!==fp) return false;
-    if(q && ![o.name,o.phone,o.email,o.userEmail,o.id].some(v=>(v||'').toLowerCase().includes(q))) return false;
+  const rows=ADMIN_ORDERS.filter(o=>{
+    if(fp==='paid'&&!isPaid(o)) return false;
+    if(fp==='unpaid'&&isPaid(o)) return false;
+    if((fp==='bank'||fp==='cod')&&(o.paymentMethod||'cod')!==fp) return false;
+    if(q&&![o.name,o.phone,o.email,o.userEmail,o.id].some(v=>(v||'').toLowerCase().includes(q))) return false;
     return true;
-  });
-  rows.sort((a,b)=>{
+  }).sort((a,b)=>{
     if(sort==='oldest') return orderMillis(a)-orderMillis(b);
     if(sort==='high') return (b.total||0)-(a.total||0);
     if(sort==='low') return (a.total||0)-(b.total||0);
     if(sort==='name') return (a.name||'').localeCompare(b.name||'');
     return orderMillis(b)-orderMillis(a);
   });
-  document.getElementById('admin-orders-list').innerHTML = rows.length ? rows.map(adminOrderCard).join('') : '<p style="color:var(--muted);">No orders match.</p>';
+
+  document.getElementById('adm-board').innerHTML=LANES.map(L=>{
+    const list=rows.filter(o=>normStatus(o.status)===L.k);
+    return `<div class="lane"><div class="lane-h"><div>${L.i} ${L.l}</div><span>${list.length}</span></div>${list.map(orderCard).join('')||'<div class="lane-empty">Nothing here</div>'}</div>`;
+  }).join('');
+
+  const btn=document.getElementById('adm-donebtn');
+  btn.classList.toggle('on',SHOW_DONE);
+  btn.textContent=SHOW_DONE?'Hide done history':`Show done history (${n('done')})`;
+  const done=rows.filter(o=>normStatus(o.status)==='done');
+  document.getElementById('adm-done').innerHTML=SHOW_DONE
+    ? `<div class="done-wrap"><h3>✅ Done · history (${done.length})</h3><div class="done-grid">${done.map(orderCard).join('')||'<div class="lane-empty">No finished orders yet</div>'}</div></div>` : '';
 }
 
-function adminOrderCard(o){
+function orderCard(o){
   const st=normStatus(o.status), paid=isPaid(o), bank=o.paymentMethod==='bank';
-  const date=o.createdAt?.toDate ? o.createdAt.toDate().toLocaleString() : '—';
-  const idx=ORDER_STEPS.findIndex(s=>s.k===st);
-  const payBadge = paid ? ['#3ddc84','✓ Paid'] : bank ? ['#ff9f43','Awaiting payment'] : ['#ffb020','Pay on delivery'];
-  const badge=(c,t)=>`<span style="background:${c}22;color:${c};padding:3px 12px;border-radius:20px;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;">${t}</span>`;
-  const items=(o.items||[]).map(i=>`${i.qty}× ${esc(i.name)} <span style="color:var(--muted)">(${esc(i.type)} · ${i.price} MAD)</span>`).join('<br>');
+  const date=o.createdAt?.toDate?o.createdAt.toDate().toLocaleString():'—';
+  const doneDate=st==='done'&&o.doneAt?.toDate?` · done ${o.doneAt.toDate().toLocaleDateString()}`:'';
+  const pb=paid?['#3ddc84','✓ Paid']:bank?['#ff9f43','Awaiting payment']:['#ffb020','Pay on delivery'];
+  const items=(o.items||[]).map(i=>`${i.qty}× ${esc(i.name)}`).join('<br>');
   const email=o.email||o.userEmail;
-  return `<div class="adm-card">
-    <div class="adm-head">
-      <div>
-        <div style="font-family:var(--font-d);font-weight:700;font-size:1.05rem;">${esc(o.name)}</div>
-        <div style="color:var(--muted);font-size:.75rem;margin-top:2px;">${date} · #${esc(o.id.slice(0,8).toUpperCase())}</div>
-      </div>
-      <div class="adm-badges">${badge('#00f5d4',ORDER_STEPS[idx].l)}${badge(payBadge[0],payBadge[1])}${badge('#6b7a99',bank?'🏦 Bank':'💵 COD')}</div>
-    </div>
-    <div class="adm-grid">
-      <div class="adm-box"><h6>Client</h6><div>
-        📞 <a href="tel:${esc(o.phone)}">${esc(o.phone)}</a><br>
-        ${email?`✉️ <a href="mailto:${esc(email)}">${esc(email)}</a><br>`:''}
-        📍 ${esc(o.address)}${o.notes?`<br>📝 ${esc(o.notes)}`:''}
-      </div></div>
-      <div class="adm-box"><h6>Items</h6><div>${items}
-        <div style="color:var(--muted);font-size:.78rem;margin-top:6px;">Subtotal ${o.subtotal??'—'} MAD · Delivery ${o.deliveryFee===0?'FREE':(o.deliveryFee??'—')+' MAD'}</div>
-        <div style="font-family:var(--font-p);font-weight:800;color:var(--cyan);font-size:1.15rem;margin-top:2px;">${o.total} MAD</div>
-      </div></div>
-    </div>
-    <div class="adm-actions">
-      <div class="adm-steps">${ORDER_STEPS.map((s,i)=>`<button class="adm-step ${i<idx?'done':i===idx?'current':''}" onclick="setOrderStatus('${o.id}','${s.k}')">${s.l}</button>`).join('')}</div>
-      <button class="adm-paybtn" style="border:1px solid ${paid?'var(--muted)':'#3ddc84'};color:${paid?'var(--muted)':'#3ddc84'};" onclick="setOrderPaid('${o.id}',${!paid})">${paid?'Mark as NOT paid':'✓ Mark as paid'}</button>
-    </div>
+  const main=NEXT[st]?`<button class="oc-btn ${st==='shipping'?'ship':'main'}" onclick="moveOrder('${o.id}','${NEXT[st][0]}')">${NEXT[st][1]}</button>`:'';
+  const back=PREV[st]?`<button class="oc-btn" title="Move back" onclick="moveOrder('${o.id}','${PREV[st]}')">${st==='done'?'↺ Reopen':'←'}</button>`:'';
+  return `<div class="oc">
+    <div class="oc-top"><div><div class="oc-name">${esc(o.name)}</div><div class="oc-meta">${date}${doneDate} · #${esc(o.id.slice(0,8).toUpperCase())}</div></div><div class="oc-total">${o.total} MAD</div></div>
+    <div class="oc-badges"><span style="background:${pb[0]}22;color:${pb[0]}">${pb[1]}</span><span style="background:#6b7a9922;color:#9aa8c7">${bank?'🏦 Bank':'💵 COD'}</span></div>
+    <div class="oc-body"><div class="oc-items">${items}</div>
+      📞 <a href="tel:${esc(o.phone)}">${esc(o.phone)}</a>${email?`<br>✉️ <a href="mailto:${esc(email)}">${esc(email)}</a>`:''}<br>📍 ${esc(o.address)}${o.notes?`<br>📝 ${esc(o.notes)}`:''}
+      <div style="margin-top:4px;">Subtotal ${o.subtotal??'—'} · Delivery ${o.deliveryFee===0?'FREE':(o.deliveryFee??'—')+' MAD'}</div></div>
+    <div class="oc-actions">${back}${main}<button class="oc-btn pay" style="${paid?'color:var(--muted);border-color:var(--border)':''}" onclick="setOrderPaid('${o.id}',${!paid})">${paid?'Unpay':'✓ Mark paid'}</button></div>
   </div>`;
 }
 
-async function setOrderStatus(id,status){
-  try {
-    await db.collection('orders').doc(id).update({status});
-    const o=ADMIN_ORDERS.find(x=>x.id===id); if(o) o.status=status;
+async function moveOrder(id,to){
+  const o=ADMIN_ORDERS.find(x=>x.id===id); if(!o) return;
+  if((to==='shipping'||to==='done')&&o.paymentMethod==='bank'&&!isPaid(o)&&!confirm('This bank transfer is not marked as paid yet. Continue anyway?')) return;
+  try{
+    await db.collection('orders').doc(id).update({status:to, doneAt: to==='done'?firebase.firestore.FieldValue.serverTimestamp():null});
+    o.status=to; if(to!=='done') o.doneAt=null;
     renderAdminOrders();
-  } catch(err){ alert('Could not update: '+err.message); }
+  }catch(err){ alert('Could not update: '+err.message); }
 }
 async function setOrderPaid(id,paid){
-  try {
-    await db.collection('orders').doc(id).update({paid, paidAt: paid ? firebase.firestore.FieldValue.serverTimestamp() : null});
-    const o=ADMIN_ORDERS.find(x=>x.id===id); if(o){ o.paid=paid; if(o.status==='payment_confirmed') o.status='ordered'; }
+  const o=ADMIN_ORDERS.find(x=>x.id===id); if(!o) return;
+  const upd={paid, paidAt: paid?firebase.firestore.FieldValue.serverTimestamp():null};
+  if(!paid&&o.status==='payment_confirmed') upd.status='ordered';
+  try{
+    await db.collection('orders').doc(id).update(upd);
+    o.paid=paid; if(upd.status) o.status='ordered';
     renderAdminOrders();
-  } catch(err){ alert('Could not update: '+err.message); }
+  }catch(err){ alert('Could not update: '+err.message); }
 }
 </script>
 <!-- ══ MULTI-PHOTO + CATEGORIES UPGRADE ══ -->
@@ -1909,6 +1914,224 @@ loadProducts();  // re-run with the upgraded version
 </script>
 </script>
 auth.onAuthStateChanged(u=>{ if(u) loadProducts(); });
+</script>
+<!-- ══ CANCEL ORDERS + DELETE CATEGORY + PRODUCT COLORS ══ -->
+<script>
+(function(){
+  var st=document.createElement('style');
+  st.textContent=`
+.oc-btn.cancel{color:#ff4d6d;border-color:#ff4d6d66;}
+.oc.cx{opacity:.7;}
+.clr-row{display:flex;gap:10px;flex-wrap:wrap;}
+.clr{width:30px;height:30px;border-radius:50%;cursor:pointer;border:2px solid transparent;outline:1px solid rgba(255,255,255,.28);transition:transform .15s;}
+.clr:hover{transform:scale(1.12);}
+.clr.big{width:38px;height:38px;}
+.clr.on{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(0,245,212,.35);}`;
+  document.head.appendChild(st);
+
+  // admin form: colors row (above the photo field)
+  document.getElementById('pf-photo').closest('.mfield').insertAdjacentHTML('beforebegin',`
+  <div class="mfield"><label>Colors <span style="color:var(--muted);font-size:.75em;">(tap to offer · customers pick one · leave empty for no choice)</span></label>
+    <div class="clr-row" id="pf-presets"></div>
+    <div style="display:flex;gap:8px;align-items:center;margin-top:8px;">
+      <input type="color" id="pf-clr-hex" value="#00f5d4" style="width:46px;height:40px;padding:2px;flex:none;"/>
+      <input type="text" id="pf-clr-name" placeholder="Custom color name (e.g. Mint)"/>
+      <button type="button" class="btn-outline" style="flex:none;" onclick="addCustomColor()">+ Add</button>
+    </div>
+    <div id="pf-clr-sel" style="color:var(--muted);font-size:.8rem;margin-top:6px;"></div>
+  </div>`);
+
+  // product page: color picker (above quantity)
+  document.querySelector('.pd-qty-row').insertAdjacentHTML('beforebegin',`
+  <div id="pd-colors-wrap" style="display:none;margin-bottom:22px;">
+    <label style="font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);">Color: <b id="pd-color-name" style="color:var(--white);">choose one</b></label>
+    <div class="clr-row" id="pd-colors" style="margin-top:10px;"></div>
+  </div>`);
+})();
+
+/* ================= 1. CANCEL ORDERS ================= */
+function normStatus(s){ return s==='handling'?'handling' : s==='shipping'?'shipping' : s==='cancelled'?'cancelled' : (s==='done'||s==='shipped'||s==='delivered')?'done' : 'ordered'; }
+
+function orderStatusBadge(status){
+  const s=normStatus(status);
+  const c={ordered:'#ffb020',handling:'#4d8bff',shipping:'#a78bfa',done:'#3ddc84',cancelled:'#ff4d6d'}[s];
+  const l={ordered:'Ordered',handling:'Handling',shipping:'Shipping',done:'Shipped',cancelled:'Cancelled'}[s];
+  return `<span style="background:${c}22;color:${c};padding:3px 12px;border-radius:20px;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;">${l}</span>`;
+}
+
+function renderAdminOrders(){
+  const q=document.getElementById('adm-search').value.trim().toLowerCase();
+  const fp=document.getElementById('adm-f-pay').value;
+  const sort=document.getElementById('adm-sort').value;
+  const n=s=>ADMIN_ORDERS.filter(o=>normStatus(o.status)===s).length;
+  const live=ADMIN_ORDERS.filter(o=>normStatus(o.status)!=='cancelled');
+  const collected=live.filter(isPaid).reduce((a,o)=>a+(o.total||0),0);
+  const outstanding=live.filter(o=>!isPaid(o)).reduce((a,o)=>a+(o.total||0),0);
+  document.getElementById('adm-stats').innerHTML=[
+    [n('ordered'),'New'],[n('handling'),'Handling'],[n('shipping'),'Shipping'],[n('done'),'Done'],[n('cancelled'),'Cancelled'],
+    [live.filter(o=>!isPaid(o)).length,'Not paid'],[collected+' MAD','Collected'],[outstanding+' MAD','Outstanding']
+  ].map(([v,l])=>`<div class="adm-stat"><b>${v}</b><span>${l}</span></div>`).join('');
+
+  const rows=ADMIN_ORDERS.filter(o=>{
+    if(fp==='paid'&&!isPaid(o)) return false;
+    if(fp==='unpaid'&&isPaid(o)) return false;
+    if((fp==='bank'||fp==='cod')&&(o.paymentMethod||'cod')!==fp) return false;
+    if(q&&![o.name,o.phone,o.email,o.userEmail,o.id].some(v=>(v||'').toLowerCase().includes(q))) return false;
+    return true;
+  }).sort((a,b)=>{
+    if(sort==='oldest') return orderMillis(a)-orderMillis(b);
+    if(sort==='high') return (b.total||0)-(a.total||0);
+    if(sort==='low') return (a.total||0)-(b.total||0);
+    if(sort==='name') return (a.name||'').localeCompare(b.name||'');
+    return orderMillis(b)-orderMillis(a);
+  });
+
+  document.getElementById('adm-board').innerHTML=LANES.map(L=>{
+    const list=rows.filter(o=>normStatus(o.status)===L.k);
+    return `<div class="lane"><div class="lane-h"><div>${L.i} ${L.l}</div><span>${list.length}</span></div>${list.map(orderCard).join('')||'<div class="lane-empty">Nothing here</div>'}</div>`;
+  }).join('');
+
+  const btn=document.getElementById('adm-donebtn');
+  btn.classList.toggle('on',SHOW_DONE);
+  btn.textContent=SHOW_DONE?'Hide history':`Show history (${n('done')+n('cancelled')})`;
+  const hist=rows.filter(o=>['done','cancelled'].includes(normStatus(o.status)));
+  document.getElementById('adm-done').innerHTML=SHOW_DONE
+    ? `<div class="done-wrap"><h3>✅ Done &amp; ❌ Cancelled · history (${hist.length})</h3><div class="done-grid">${hist.map(orderCard).join('')||'<div class="lane-empty">Nothing in history yet</div>'}</div></div>` : '';
+}
+
+function orderCard(o){
+  const st=normStatus(o.status), paid=isPaid(o), bank=o.paymentMethod==='bank', cx=st==='cancelled';
+  const date=o.createdAt?.toDate?o.createdAt.toDate().toLocaleString():'—';
+  const end=st==='done'&&o.doneAt?.toDate?` · done ${o.doneAt.toDate().toLocaleDateString()}`:cx&&o.cancelledAt?.toDate?` · cancelled ${o.cancelledAt.toDate().toLocaleDateString()}`:'';
+  const pb=paid?['#3ddc84','✓ Paid']:bank?['#ff9f43','Awaiting payment']:['#ffb020','Pay on delivery'];
+  const badges=(cx
+    ? `<span style="background:#ff4d6d22;color:#ff4d6d">Cancelled</span>`+(paid?`<span style="background:#ffb02022;color:#ffb020">Refund needed</span>`:'')
+    : `<span style="background:${pb[0]}22;color:${pb[0]}">${pb[1]}</span>`)
+    +`<span style="background:#6b7a9922;color:#9aa8c7">${bank?'🏦 Bank':'💵 COD'}</span>`;
+  const items=(o.items||[]).map(i=>`${i.qty}× ${esc(i.name)}`).join('<br>');
+  const email=o.email||o.userEmail;
+  let actions;
+  if(cx){
+    actions=`<button class="oc-btn main" onclick="moveOrder('${o.id}','ordered')">↺ Reopen</button>`
+      +(paid?`<button class="oc-btn pay" onclick="setOrderPaid('${o.id}',false)">Mark refunded</button>`:'');
+  }else{
+    const back=PREV[st]?`<button class="oc-btn" title="Move back" onclick="moveOrder('${o.id}','${PREV[st]}')">${st==='done'?'↺ Reopen':'←'}</button>`:'';
+    const main=NEXT[st]?`<button class="oc-btn ${st==='shipping'?'ship':'main'}" onclick="moveOrder('${o.id}','${NEXT[st][0]}')">${NEXT[st][1]}</button>`:'';
+    const payb=`<button class="oc-btn pay" style="${paid?'color:var(--muted);border-color:var(--border)':''}" onclick="setOrderPaid('${o.id}',${!paid})">${paid?'Unpay':'✓ Mark paid'}</button>`;
+    const cancel=st!=='done'?`<button class="oc-btn cancel" onclick="cancelOrder('${o.id}')">✕ Cancel</button>`:'';
+    actions=back+main+payb+cancel;
+  }
+  return `<div class="oc ${cx?'cx':''}">
+    <div class="oc-top"><div><div class="oc-name">${esc(o.name)}</div><div class="oc-meta">${date}${end} · #${esc(o.id.slice(0,8).toUpperCase())}</div></div><div class="oc-total">${o.total} MAD</div></div>
+    <div class="oc-badges">${badges}</div>
+    <div class="oc-body"><div class="oc-items">${items}</div>
+      📞 <a href="tel:${esc(o.phone)}">${esc(o.phone)}</a>${email?`<br>✉️ <a href="mailto:${esc(email)}">${esc(email)}</a>`:''}<br>📍 ${esc(o.address)}${o.notes?`<br>📝 ${esc(o.notes)}`:''}
+      <div style="margin-top:4px;">Subtotal ${o.subtotal??'—'} · Delivery ${o.deliveryFee===0?'FREE':(o.deliveryFee??'—')+' MAD'}</div></div>
+    <div class="oc-actions">${actions}</div>
+  </div>`;
+}
+
+async function cancelOrder(id){
+  const o=ADMIN_ORDERS.find(x=>x.id===id); if(!o) return;
+  if(!confirm(`Cancel ${o.name}'s order?`+(isPaid(o)?'\n\nIt is marked PAID, so remember to refund the customer.':''))) return;
+  try{
+    await db.collection('orders').doc(id).update({status:'cancelled',cancelledAt:firebase.firestore.FieldValue.serverTimestamp()});
+    o.status='cancelled'; o.cancelledAt=null; renderAdminOrders();
+  }catch(err){ alert('Could not cancel: '+err.message); }
+}
+
+/* ================= 2. DELETE CATEGORY ================= */
+function renderCatManager(){
+  const cnt=n=>PRODUCTS_CACHE.filter(p=>p.category===n).length;
+  document.getElementById('cat-manager').innerHTML=CATEGORIES.length
+    ? CATEGORIES.map((c,i)=>`<span class="cat-chip" style="cursor:default;padding-right:6px;">${esc(c.name)} <small style="opacity:.6">(${cnt(c.name)})</small><button type="button" class="oc-btn cancel" style="padding:3px 10px;margin-left:4px;" onclick="deleteCategory(${i})">🗑 Delete</button></span>`).join('')
+    : '<span style="color:var(--muted);font-size:.85rem;">No categories yet.</span>';
+}
+async function deleteCategory(i){
+  if(!isAdmin()) return;
+  const c=CATEGORIES[i]; if(!c) return;
+  const n=PRODUCTS_CACHE.filter(p=>p.category===c.name).length;
+  if(!confirm(`Delete the category "${c.name}"?`+(n?`\n\n${n} product(s) will become uncategorised (they are NOT deleted).`:''))) return;
+  try{
+    const s=await db.collection('products').where('category','==',c.name).get();
+    for(const d of s.docs) await d.ref.update({category:''});
+    if(c.id) await db.collection('categories').doc(c.id).delete();
+    ['figurine','original'].forEach(t=>{ if(shopFilter[t]===c.name) shopFilter[t]=''; });
+    await loadProducts();
+  }catch(err){ alert('Could not delete: '+err.message+'\n\nIf it says "permission", allow delete on the "categories" collection for the admin emails in Firestore rules.'); }
+}
+
+/* ================= 3. PRODUCT COLORS ================= */
+const COLOR_PRESETS=[['Black','#111111'],['White','#f5f5f5'],['Grey','#8a8f98'],['Red','#e53935'],['Orange','#fb8c00'],['Yellow','#fdd835'],['Green','#43a047'],['Blue','#1e88e5'],['Navy','#1a237e'],['Purple','#8e24aa'],['Pink','#ec407a'],['Gold','#d4af37'],['Silver','#c0c0c0'],['Brown','#6d4c41']];
+let PF_COLORS=[], PF_SW=[], pdColor=null;
+
+function renderPfColors(){
+  const lc=s=>s.toLowerCase();
+  const custom=PF_COLORS.filter(c=>!COLOR_PRESETS.some(p=>lc(p[0])===lc(c.name))).map(c=>[c.name,c.hex]);
+  PF_SW=[...COLOR_PRESETS,...custom];
+  document.getElementById('pf-presets').innerHTML=PF_SW.map(([n,h],i)=>{
+    const on=PF_COLORS.some(c=>lc(c.name)===lc(n));
+    return `<span class="clr ${on?'on':''}" style="background:${esc(h)}" title="${esc(n)}" onclick="togglePfColor(${i})"></span>`;
+  }).join('');
+  document.getElementById('pf-clr-sel').textContent=PF_COLORS.length?'Offered: '+PF_COLORS.map(c=>c.name).join(', '):'No colors offered (customers get no choice).';
+}
+function togglePfColor(i){
+  const [n,h]=PF_SW[i]; const k=PF_COLORS.findIndex(c=>c.name.toLowerCase()===n.toLowerCase());
+  if(k>-1) PF_COLORS.splice(k,1); else PF_COLORS.push({name:n,hex:h});
+  renderPfColors();
+}
+function addCustomColor(){
+  const n=document.getElementById('pf-clr-name').value.trim(), h=document.getElementById('pf-clr-hex').value;
+  if(!n){ alert('Give the color a name.'); return; }
+  if(!PF_COLORS.some(c=>c.name.toLowerCase()===n.toLowerCase())) PF_COLORS.push({name:n,hex:h});
+  document.getElementById('pf-clr-name').value=''; renderPfColors();
+}
+renderPfColors();
+
+const _resetPF=resetProductForm;
+resetProductForm=function(){ _resetPF(); PF_COLORS=[]; renderPfColors(); };
+const _editPF=editProduct;
+editProduct=async function(id){
+  await _editPF(id);
+  const p=PRODUCTS_CACHE.find(x=>x.id===id);
+  PF_COLORS=p&&p.colors?p.colors.map(c=>({...c})):[]; renderPfColors();
+};
+
+function renderPdColors(p){
+  const cols=(p&&p.colors)||[];
+  document.getElementById('pd-colors-wrap').style.display=cols.length?'block':'none';
+  document.getElementById('pd-color-name').textContent=pdColor?pdColor.name:'choose one';
+  document.getElementById('pd-colors').innerHTML=cols.map((c,i)=>`<span class="clr big ${pdColor&&pdColor.name===c.name?'on':''}" style="background:${esc(c.hex)}" title="${esc(c.name)}" onclick="pickColor(${i})"></span>`).join('');
+}
+function pickColor(i){ pdColor=pdCurrentProduct.colors[i]; renderPdColors(pdCurrentProduct); }
+
+const _openPD=openProduct;
+openProduct=function(id){
+  _openPD(id); pdColor=null;
+  renderPdColors(PRODUCTS_CACHE.find(x=>x.id===id));
+};
+
+pdAddToCart=function(){
+  if(!pdCurrentProduct) return;
+  const p=pdCurrentProduct;
+  if((p.colors||[]).length&&!pdColor){ alert('Please choose a color first.'); return; }
+  addToCart({
+    id:'prod-'+p.id+(pdColor?'-'+pdColor.name.toLowerCase().replace(/[^a-z0-9]/g,''):''),
+    name:p.name+(pdColor?' — '+pdColor.name:''),
+    price:p.price, type:p.type==='figurine'?'Figurine':'Original', color:pdColor?pdColor.name:''
+  }, pdQty, true);
+  document.getElementById('pd-added-msg').style.display='flex';
+};
+
+// "Add to Cart" on a shop card: if the product has colors, open its page so the customer can choose
+const _addToCartOrig=addToCart;
+addToCart=function(item,qty=1,silent=false){
+  if(!item.color){
+    const p=PRODUCTS_CACHE.find(x=>'prod-'+x.id===item.id);
+    if(p&&(p.colors||[]).length){ openProduct(p.id); return; }
+  }
+  _addToCartOrig(item,qty,silent);
+};
 </script>
 </body>
 </html>
